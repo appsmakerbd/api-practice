@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - JSON Placeholder</title>
+</head>
+<body>
+
+    <h1>Fetching Data from remote Server</h1>
+    <h3>Showing data using <span style="color: tomato;">JSON</span></h3>
+    <ul id="user-list">
+
+    </ul>
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayUsers(json))
+        .catch(error => console.log(error))//this line for error catching
+
+        function displayUsers(users){
+            //console.log(users);
+            //getting username from users object using JSON
+            const userName=users.map(customUser => customUser.username);
+            console.log(userName);
+
+
+            //inserting data into HTML DOM
+            const ul=document.getElementById('user-list');;
+            for (let i = 0; i < userName.length; i++) {
+                const singleUser = userName[i];
+                const li=document.createElement("li");
+                li.innerText=singleUser;
+                ul.appendChild(li);                
+            }
+        }
+    </script>
+</body>
+</html>

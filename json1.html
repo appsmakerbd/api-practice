@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data</title>
+</head>
+<body>
+    <script>
+        const student={
+            id:420,
+            name:'Rahim Uddin'
+        };
+
+        //object to JSON
+        const studentJSON=JSON.stringify(student);
+        console.log(studentJSON);
+
+        //JSON to Object
+        const makeObject=JSON.parse(studentJSON);
+        console.log(makeObject);
+
+    </script>
+</body>
+</html>
